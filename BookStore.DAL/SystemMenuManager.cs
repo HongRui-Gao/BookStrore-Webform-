@@ -62,7 +62,7 @@ namespace BookStore.DAL
 
         public List<SystemMenu> GetSystemMenusListByTitle(string title)
         {
-            string sql = $"select Id,Title,Link, ParentId from SystemMenu where Title like '%{title}%'";
+            string sql = "select Id,Title,Link, ParentId from SystemMenu where Title like '%"+title+"%'";
             var dt = SqlHelper.Query(sql, null);
             var list = new List<SystemMenu>();
             foreach (DataRow dr in dt.Rows)

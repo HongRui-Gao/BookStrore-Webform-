@@ -62,7 +62,7 @@ namespace BookStore.DAL
 
         public List<WebMenu> GetWebMenusListByTitle(string title)
         {
-            string sql = $"select Id,Title,Link, ParentId from WebMenu where Title like '%{title}%'";
+            string sql = "select Id,Title,Link, ParentId from WebMenu where Title like '%"+title+"%'";
             var dt = SqlHelper.Query(sql, null);
             var list = new List<WebMenu>();
             foreach (DataRow dr in dt.Rows)
