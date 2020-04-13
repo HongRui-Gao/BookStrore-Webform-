@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AspNetPager">
+      <HintPath>E:\直播课程\92\2020.04.13\AspNetPager.DLL</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -127,6 +130,7 @@
     <Content Include="Admins\images\001.jpg" />
     <Content Include="Admins\images\404.png" />
     <Content Include="Admins\images\add.png" />
+    <Content Include="Admins\images\AddWZ.png" />
     <Content Include="Admins\images\btnbg.png" />
     <Content Include="Admins\images\btnbg1.png" />
     <Content Include="Admins\images\btnbg2.png" />
@@ -146,6 +150,7 @@
     <Content Include="Admins\images\d05.png" />
     <Content Include="Admins\images\d06.png" />
     <Content Include="Admins\images\d07.png" />
+    <Content Include="Admins\images\DelWZ.png" />
     <Content Include="Admins\images\diskbg.png" />
     <Content Include="Admins\images\dp.png" />
     <Content Include="Admins\images\f01.png" />

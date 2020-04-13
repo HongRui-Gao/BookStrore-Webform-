@@ -1,159 +1,128 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RolesList.aspx.cs" Inherits="BookStore.WebApp.Admins.Roles.RolesList" %>
-
+<%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
+<%--
+    Register 它实现的是注册功能,注册的是我们额外导入的控件,自定义控件
+    Assembly 反射,找到我们分页插件dll文件所在位置 
+    Namespace 命名空间,指的是我们分页插件它在编写的时候所用的命名空间
+    TagPrefix 当前页面内想要使用分页插件时所使用的服务器标签名称是
+    --%>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>权限管理界面</title>
+    <title>角色管理</title>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../js/jquery.js"></script>
-    <script language="javascript">
-        $(function () {
-            //导航切换
-            $(".imglist li").click(function () {
-                $(".imglist li.selected").removeClass("selected");
-                $(this).addClass("selected");
-            });
-        })
-    </script>
+    <script src="../js/jquery.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $(".click").click(function () {
-                $(".tip").fadeIn(200);
-            });
-
-            $(".tiptop a").click(function () {
-                $(".tip").fadeOut(200);
-            });
-
-            $(".sure").click(function () {
-                $(".tip").fadeOut(100);
-            });
-
-            $(".cancel").click(function () {
-                $(".tip").fadeOut(100);
-            });
-
-        });
+        function selectAll(obj) {
+            var allInput = document.getElementsByTagName("input");
+            //alert(allInput.length);
+            var loopTime = allInput.length;
+            for (i = 0; i < loopTime; i++) {
+                //alert(allInput[i].type);
+                if (allInput[i].type == "checkbox") {
+                    allInput[i].checked = obj.checked;
+                }
+            }
+        }
+ 
     </script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="place">
-            <span>位置：</span>
-            <ul class="placeul">
-                <li><a href="../main/Main.aspx">首页</a></li>
-                <li><a href="#">权限管理界面</a></li>
+     <form id="form1" runat="server">
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="../main/Main.aspx">首页</a></li>
+            <li><a href="RolesList.aspx">角色管理</a></li>
+        </ul>
+    </div>
+    <div class="rightinfo">
+        <div class="tools">
+            <div class="ss_kuang">
+                <p>
+                    查找：</p>
+                <asp:TextBox ID="txtKeyWords" runat="server" class="ss_wk"></asp:TextBox>
+                <div class="ss_tu">
+                    <asp:ImageButton ID="ibtnGetSubmit" runat="server" ImageUrl="../images/ico06.png"
+                        OnClick="ibtnGetSubmit_OnClick" />
+                </div>
+            </div>
+            <ul class="float">
+                <li class="click"><a href='AddRoles.aspx'>
+                    <asp:Image ID="imgAdd" runat="server" ImageUrl="../images/AddWZ.png" Width="100"
+                        Height="35"></asp:Image></a>
+                </li>
+                <li style="float:left; padding-right:0px;">
+                    <asp:ImageButton ID="ibtnDelAll" runat="server" ImageUrl="../images/DelWZ.png" Width="100"
+                        Height="35" OnClientClick="return confirm('确定执行删除选中操作？')" OnClick="ibtnDelAll_OnClick" />
+                </li>
             </ul>
         </div>
-
-        <div class="rightinfo">
-
-            <div class="tools">
-
-                <ul class="toolbar">
-                    <li class="click"><span>
-                        <img src="../images/t01.png" /></span>添加</li>
-                    <li class="click"><span>
-                        <img src="../images/t02.png" /></span>修改</li>
-                    <li><span>
-                        <img src="../images/t03.png" /></span>删除</li>
-                    <li><span>
-                        <img src="../images/t04.png" /></span>统计</li>
-                </ul>
-
-
-                <ul class="toolbar1">
-                    <li><span>
-                        <img src="../images/t05.png" /></span>设置</li>
-                </ul>
-
-            </div>
-
-
-            <table class="tablelist">
-                <thead>
-                    <tr>
-                        <th width="5%">序号</th>
-                        <th width="5%">
-                            <asp:CheckBox ID="ckAll" runat="server" />
-                        </th>
-                        <th width="30%">权限名称</th>
-                        <th width="10%">修改</th>
-                        <th width="10%">删除</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <asp:Repeater ID="RepRolesList" runat="server">
-                        <ItemTemplate>
-                            <tr>
-                                <td>
-                                    <%#Container.ItemIndex+1 %>
-                                </td>
-                                <td>
-                                    <asp:CheckBox ID="ck_info" runat="server" />
-                                    <asp:Label ID="lbl" runat="server" Text='<%#Eval("Id") %>' Visible="False"></asp:Label>
-                                </td>
-                                <td>
-                                    <%#Eval("Title") %>
-                                </td>
-                                <td>
-                                    <a href='EditRoles.aspx?id=<%#Eval("Id") %>'>
-                                        <img src="../images/t02.png" />
-                                        
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href='DeleteRoles.aspx?id=<%#Eval("Id") %>'>
-                                        <img src="../images/t03.png" />
-                                    </a>
-                                </td>
-                            </tr>
-                        </ItemTemplate>
-                    </asp:Repeater>
-
-                    <!--
-                    GridView 自己本身就是表格类型的标签,但是Repeater不是,它更万能,所有样式的内容,只要是用到了循环遍历
-                    它都可以使用,但是它有个问题,要求我们必须具备比较高的前端知识(html+css),它里面包含了一些模板
-                    常用的是ItemTemplate item是项,主要用于foreach循环,代表循环的集合里面每一项内容
-                    template 它本身就是模板的意思 
-                    我们在GridView当中绑定数据的时候,是通过类似于winform的视图绑定,在界面当中用对应列的属性来进行操作
-                    Repeater不支持上面的绑定方式,它更贴近于我们代码编程,让我们从视图与代码之间的频繁操作当中脱离出来,它是
-                    完全通过代码来进行实现的,通过的是EVAL绑定,有点类似于 JSP小脚本
-                -->
-
-                </tbody>
-
-            </table>
-
-
-
-
-
-
-            <div class="pagin">
-                <div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
-                <ul class="paginList">
-                    <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-                    <li class="paginItem"><a href="javascript:;">1</a></li>
-                    <li class="paginItem current"><a href="javascript:;">2</a></li>
-                    <li class="paginItem"><a href="javascript:;">3</a></li>
-                    <li class="paginItem"><a href="javascript:;">4</a></li>
-                    <li class="paginItem"><a href="javascript:;">5</a></li>
-                    <li class="paginItem more"><a href="javascript:;">...</a></li>
-                    <li class="paginItem"><a href="javascript:;">10</a></li>
-                    <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-                </ul>
-            </div>
-
-
-           
-
-        <script type="text/javascript">
-            $('.imgtable tbody tr:odd').addClass('odd');
-        </script>
+        <table class="tablelist">
+            <thead>
+                <tr>
+                    <th>
+                        <asp:CheckBox ID="chk_JS" runat="server" Text="" onclick="selectAll(this)" />
+                    </th>
+                    <th>
+                        编号
+                    </th>
+                    <th>
+                        角色名
+                    </th>
+                    <th>
+                        修改
+                    </th>
+                    <th>
+                        删除
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <asp:Repeater ID="RepRolesList" runat="server">
+                    <ItemTemplate>
+                        <tr>
+                            <td width="5%">
+                                <asp:CheckBox ID="chk_Del" runat="server" />
+                                <asp:Label ID="lbl" Text='<%#Eval("Id") %>' runat="server" Visible="false"></asp:Label>
+                            </td>
+                            <td width="5%">
+                                <%# Container.ItemIndex + 1 + (this.AspNetPager1.CurrentPageIndex - 1) * this.AspNetPager1.PageSize%>
+                            </td>
+                            <td width="10%">
+                                <%# Eval("Title")%>
+                            </td>
+                       
+                            <td width="5%">
+                                <a href='LX_Role_Edit.aspx?action=<%#Eval("Id") %>'>
+                                    <asp:Image ID="imgedit" runat="server" ImageUrl="../images/t02.png" Width="20" Height="20">
+                                    </asp:Image></a>
+                            </td>
+                            <td width="5%">
+                                <a href='LX_Role_Del.aspx?action=<%#Eval("Id") %>'>
+                                    <asp:Image ID="imgdel" runat="server" ImageUrl="../images/t03.png" Width="20" Height="20">
+                                    </asp:Image></a>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </tbody>
+        </table>
+        <div class="pagin">
+            <webdiyer:AspNetPager ID="AspNetPager1" CssClass="pages" CurrentPageButtonClass="cpb"
+                HorizontalAlign="Right" PageIndexBoxType="TextBox"  
+                 ShowMoreButtons="False" ShowNavigationToolTip="True"
+                runat="server" AlwaysShow="True" PageSize="8" ShowInputBox="Always"
+                LayoutType="Table" OnPageChanging="AspNetPager1_PageChanging" 
+                FirstPageText="首页" LastPageText="尾页" NextPageText="下一页" PrevPageText="上一页" 
+                PagingButtonSpacing="2px" SubmitButtonClass="btngo">
+            </webdiyer:AspNetPager>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
     </form>
 </body>
 </html>
