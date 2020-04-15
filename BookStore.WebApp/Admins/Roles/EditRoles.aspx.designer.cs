@@ -11,7 +11,7 @@ namespace BookStore.WebApp.Admins.Roles
 {
 
 
-    public partial class RolesList
+    public partial class EditRoles
     {
 
         /// <summary>
@@ -24,66 +24,39 @@ namespace BookStore.WebApp.Admins.Roles
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtKeyWords 控件。
+        /// RolesId 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtKeyWords;
+        protected global::System.Web.UI.WebControls.TextBox RolesId;
 
         /// <summary>
-        /// ibtnGetSubmit 控件。
+        /// RolesTitle 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ibtnGetSubmit;
+        protected global::System.Web.UI.WebControls.TextBox RolesTitle;
 
         /// <summary>
-        /// imgAdd 控件。
+        /// RequiredFieldValidator1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgAdd;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// ibtnDelAll 控件。
+        /// btnSumbit 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ibtnDelAll;
-
-        /// <summary>
-        /// chk_JS 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chk_JS;
-
-        /// <summary>
-        /// RepRolesList 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepRolesList;
-
-        /// <summary>
-        /// AspNetPager1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Wuqi.Webdiyer.AspNetPager AspNetPager1;
+        protected global::System.Web.UI.WebControls.Button btnSumbit;
     }
 }

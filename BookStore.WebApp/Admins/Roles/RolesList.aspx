@@ -95,12 +95,12 @@
                             </td>
                        
                             <td width="5%">
-                                <a href='LX_Role_Edit.aspx?action=<%#Eval("Id") %>'>
+                                <a href='EditRoles.aspx?action=<%#Eval("Id") %>'>
                                     <asp:Image ID="imgedit" runat="server" ImageUrl="../images/t02.png" Width="20" Height="20">
                                     </asp:Image></a>
                             </td>
                             <td width="5%">
-                                <a href='LX_Role_Del.aspx?action=<%#Eval("Id") %>'>
+                                <a href='DeleteRoles.aspx?action=<%#Eval("Id") %>'>
                                     <asp:Image ID="imgdel" runat="server" ImageUrl="../images/t03.png" Width="20" Height="20">
                                     </asp:Image></a>
                             </td>

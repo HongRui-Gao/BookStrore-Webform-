@@ -269,6 +269,9 @@
     <Content Include="Admins\main\Left.aspx" />
     <Content Include="Admins\main\Main.aspx" />
     <Content Include="Admins\main\Top.aspx" />
+    <Content Include="Admins\Roles\AddRoles.aspx" />
+    <Content Include="Admins\Roles\DeleteRoles.aspx" />
+    <Content Include="Admins\Roles\EditRoles.aspx" />
     <Content Include="Admins\Roles\RolesList.aspx" />
     <Content Include="Admins\src\jquery.gvChart-1.0.1.js" />
     <Content Include="Global.asax" />
@@ -309,6 +312,27 @@
     </Compile>
     <Compile Include="Admins\main\Top.aspx.designer.cs">
       <DependentUpon>Top.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Roles\AddRoles.aspx.cs">
+      <DependentUpon>AddRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Roles\AddRoles.aspx.designer.cs">
+      <DependentUpon>AddRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Roles\DeleteRoles.aspx.cs">
+      <DependentUpon>DeleteRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Roles\DeleteRoles.aspx.designer.cs">
+      <DependentUpon>DeleteRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Roles\EditRoles.aspx.cs">
+      <DependentUpon>EditRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Roles\EditRoles.aspx.designer.cs">
+      <DependentUpon>EditRoles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admins\Roles\RolesList.aspx.cs">
       <DependentUpon>RolesList.aspx</DependentUpon>
