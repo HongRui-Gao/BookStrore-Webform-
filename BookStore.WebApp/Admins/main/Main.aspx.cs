@@ -16,7 +16,7 @@ namespace BookStore.WebApp.Admins.main
             HttpCookie r_cookie = Request.Cookies["RolesId"];
             if ((Session["LoginOk"] == null || Session["RolesId"] == null) && (u_cookie == null || r_cookie == null))
             {
-                Response.Write("alert('账号信息过期,请重新登入');location.href='../Login.aspx'");
+                Response.Write("<script>alert('账号信息过期,请重新登入');location.href='../Login.aspx'</script>");
             }
            
         }

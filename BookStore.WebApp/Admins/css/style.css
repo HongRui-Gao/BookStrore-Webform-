@@ -301,3 +301,32 @@ h2{font-weight:normal;}
 .pages .srk { height:13px;font-size:12px;vertical-align:middle}
 .pages .btngo { width:26px;height:15px;vertical-align:middle;}
 
+/* DropDownList */
+
+.dropdownlistout {
+     border: 1px solid #a7b5bc;
+     width: 345px;
+     height: 32px;
+     clip: rect( 0px, 181px, 20px, 0px );
+     overflow: hidden;
+ }
+
+.dropdownlistin {
+    border: 1px solid #a7b5bc;
+    width: 345px;
+    height: 32px;
+    clip: rect( 0px, 179px, 18px, 0px );
+    overflow: hidden;
+}
+
+.dropdownlist {
+    border: 1px solid #a7b5bc;
+    left: -2px;
+    top: -2px;
+    width: 345px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 18px;
+    color: #909993;
+}
+
