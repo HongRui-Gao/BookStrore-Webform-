@@ -19,14 +19,25 @@ namespace BookStore.WebApp.Admins.Users
             if (IsPostBack)
                 return;
 
-            #region 权限下拉列表的绑定
+            HttpCookie u_cookie = Request.Cookies["LoginOk"];
+            HttpCookie r_cookie = Request.Cookies["RolesId"];
+            if ((Session["LoginOk"] == null || Session["RolesId"] == null) && (u_cookie == null || r_cookie == null))
+            {
+                Response.Write("<script>alert('账号信息过期,请重新登入');location.href='../Login.aspx'</script>");
+            }
+            else
+            {
+                #region 权限下拉列表的绑定
 
-            this.RolesList.DataSource = rolesSvc.GetRolesList();
-            this.RolesList.DataValueField = "Id";
-            this.RolesList.DataTextField = "Title";
-            this.RolesList.DataBind();
+                this.RolesList.DataSource = rolesSvc.GetRolesList();
+                this.RolesList.DataValueField = "Id";
+                this.RolesList.DataTextField = "Title";
+                this.RolesList.DataBind();
 
-            #endregion
+                #endregion
+            }
+
+
 
         }
 
@@ -34,11 +45,11 @@ namespace BookStore.WebApp.Admins.Users
         {
             Model.Users u = new Model.Users
             {
-                Email =  this.Email.Text,
+                Email = this.Email.Text,
                 Password = this.Password.Text,
                 NickName = this.NickName.Text,
                 RolesId = int.Parse(this.RolesList.SelectedValue),
-                Photo = upload.UpFileName(FileUpload1,"../../upload/users/"),
+                Photo = upload.UpFileName(FileUpload1, "../../upload/users/"),
                 CreateTime = DateTime.Now
             };
 

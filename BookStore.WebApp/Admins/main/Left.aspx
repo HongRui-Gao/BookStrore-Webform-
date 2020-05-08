@@ -10,32 +10,52 @@
     <script language="JavaScript" src="../js/jquery.js"></script>
 
     <script type="text/javascript">
-        $(function(){	
+        $(function () {
             //导航切换
-            $(".menuson li").click(function(){
+            $(".menuson li").click(function () {
                 $(".menuson li.active").removeClass("active")
                 $(this).addClass("active");
             });
-	
-            $('.title').click(function(){
+
+            $('.title').click(function () {
                 var $ul = $(this).next('ul');
                 $('dd').find('ul').slideUp();
-                if($ul.is(':visible')){
+                if ($ul.is(':visible')) {
                     $(this).next('ul').slideUp();
-                }else{
+                } else {
                     $(this).next('ul').slideDown();
                 }
             });
-        })	
+        })
     </script>
 </head>
-<body style="background:#f0f9fd;">
+<body style="background: #f0f9fd;">
     <form id="form1" runat="server">
         <div class="lefttop"><span></span>通讯录</div>
-    
-    <dl class="leftmenu">
-        
-    <dd>
+
+        <dl class="leftmenu">
+
+            <asp:Repeater ID="RepLeftMenu" runat="server" OnItemDataBound="RepLeftMenu_ItemDataBound">
+                <ItemTemplate>
+                    <dd>
+                        <div class="title">
+                            <span>
+                                <img src="../images/leftico01.png" /></span><%#Eval("Title") %>
+                        </div>
+                        <ul class="menuson">
+                            <asp:Label ID="lbl_ParentId" runat="server" Text='<%#Eval("Id") %>' Visible="false"></asp:Label>
+                            <asp:Repeater ID="RepSonMenu" runat="server">
+                                <ItemTemplate>
+                                    <li><cite></cite><a href="<%#Eval("Link") %>" target="rightFrame"><%#Eval("Title") %></a><i></i></li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </dd>
+                </ItemTemplate>
+
+            </asp:Repeater>
+
+            <%--<dd>
     <div class="title">
     <span><img src="../images/leftico01.png" /></span>管理信息
     </div>
@@ -84,9 +104,8 @@
         <li><cite></cite><a href="#">其他</a><i></i></li>
     </ul>
     
-    </dd>   
-    
-    </dl>
+    </dd> --%>
+        </dl>
     </form>
 </body>
 </html>

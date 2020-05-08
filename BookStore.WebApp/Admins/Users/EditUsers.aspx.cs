@@ -20,35 +20,45 @@ namespace BookStore.WebApp.Admins.Users
             if (IsPostBack)
                 return;
 
-            #region 权限列表绑定
-
-            this.RolesList.DataSource = rolesSvc.GetRolesList();
-            this.RolesList.DataTextField = "Title";
-            this.RolesList.DataValueField = "Id";
-            this.RolesList.DataBind();
-
-            #endregion
-
-            #region 根据传递过来的id值,找到对应的用户信息
-
-            int id = Request.Params["action"] == null ? 0 : int.Parse(Request.Params["action"]);
-            var data = usersSvc.GetUsersById(id);
-            if (data == null)
+            HttpCookie u_cookie = Request.Cookies["LoginOk"];
+            HttpCookie r_cookie = Request.Cookies["RolesId"];
+            if ((Session["LoginOk"] == null || Session["RolesId"] == null) && (u_cookie == null || r_cookie == null))
             {
-                Response.Write("<script>alert('该用户信息不存在');location.href='UsersList.aspx'</script>");
+                Response.Write("<script>alert('账号信息过期,请重新登入');location.href='../Login.aspx'</script>");
             }
             else
             {
-                this.UsersId.Text = data.Id.ToString();
-                this.Email.Text = data.Email.ToString();
-                this.Password.Text = data.Password.ToString();
-                this.RePassword.Text = data.Password.ToString();
-                this.NickName.Text = data.NickName.ToString();
-                imgSrc = data.Photo;
-                this.RolesList.SelectedValue = data.RolesId.ToString();
-            }
-            #endregion
 
+
+                #region 权限列表绑定
+
+                this.RolesList.DataSource = rolesSvc.GetRolesList();
+                this.RolesList.DataTextField = "Title";
+                this.RolesList.DataValueField = "Id";
+                this.RolesList.DataBind();
+
+                #endregion
+
+                #region 根据传递过来的id值,找到对应的用户信息
+
+                int id = Request.Params["action"] == null ? 0 : int.Parse(Request.Params["action"]);
+                var data = usersSvc.GetUsersById(id);
+                if (data == null)
+                {
+                    Response.Write("<script>alert('该用户信息不存在');location.href='UsersList.aspx'</script>");
+                }
+                else
+                {
+                    this.UsersId.Text = data.Id.ToString();
+                    this.Email.Text = data.Email.ToString();
+                    this.Password.Text = data.Password.ToString();
+                    this.RePassword.Text = data.Password.ToString();
+                    this.NickName.Text = data.NickName.ToString();
+                    imgSrc = data.Photo;
+                    this.RolesList.SelectedValue = data.RolesId.ToString();
+                }
+                #endregion
+            }
         }
 
         protected void btnSumbit_OnClick(object sender, EventArgs e)
@@ -67,7 +77,7 @@ namespace BookStore.WebApp.Admins.Users
                 data.RolesId = int.Parse(this.RolesList.SelectedValue);
                 if (!String.IsNullOrEmpty(this.FileUpload1.FileName))
                 {
-                  data.Photo = upload.UpFileName(FileUpload1, "../../upload/users/");
+                    data.Photo = upload.UpFileName(FileUpload1, "../../upload/users/");
                 }
 
                 var rs = usersSvc.Edit(data);
@@ -77,7 +87,7 @@ namespace BookStore.WebApp.Admins.Users
                 }
                 else
                 {
-                    Response.Write("<script>alert('修改失败');location.href='EditUsers.aspx?action="+data.Id+"'</script>");
+                    Response.Write("<script>alert('修改失败');location.href='EditUsers.aspx?action=" + data.Id + "'</script>");
                 }
             }
         }

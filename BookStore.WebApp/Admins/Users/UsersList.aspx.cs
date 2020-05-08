@@ -15,11 +15,19 @@ namespace BookStore.WebApp.Admins.Users
         private RolesService roles_bll = new RolesService();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(IsPostBack)
+            if (IsPostBack)
                 return;
+            HttpCookie u_cookie = Request.Cookies["LoginOk"];
+            HttpCookie r_cookie = Request.Cookies["RolesId"];
+            if ((Session["LoginOk"] == null || Session["RolesId"] == null) && (u_cookie == null || r_cookie == null))
+            {
+                Response.Write("<script>alert('账号信息过期,请重新登入');location.href='../Login.aspx'</script>");
+            }
+            else
+            {
 
-            GetUsers("");
-
+                GetUsers("");
+            }
         }
 
         protected void AspNetPager1_OnPageChanging(object src, PageChangingEventArgs e)
@@ -41,7 +49,7 @@ namespace BookStore.WebApp.Admins.Users
             for (int i = 0; i < this.RepUsersList.Items.Count; i++) //遍历Repeater控件的所有项
             {
                 CheckBox cbx = (CheckBox)RepUsersList.Items[i].FindControl("chk_Del"); //在Repeater控件当中找到多选按钮
-                Label lbl = (Label) RepUsersList.Items[i].FindControl("lbl");//在Repeater控件当中找到label
+                Label lbl = (Label)RepUsersList.Items[i].FindControl("lbl");//在Repeater控件当中找到label
 
                 if (cbx.Checked) //判断多选按钮是否被选中
                 {
@@ -51,13 +59,13 @@ namespace BookStore.WebApp.Admins.Users
                 }
             }
             //1,2,3,  C# Substring(从哪开始,多少个长度)
-            int rs = users_bll.DeleteList(checkId.Substring(0, checkId.Length-1));
-            if(rs > 0) 
+            int rs = users_bll.DeleteList(checkId.Substring(0, checkId.Length - 1));
+            if (rs > 0)
                 Response.Write("<script>alert('删除成功');location.href='UsersList.aspx'</script>");
             else
                 Response.Write("<script>alert('删除失败');location.href='UsersList.aspx'</script>");
         }
-            
+
 
         /// <summary>
         /// 绑定用户信息

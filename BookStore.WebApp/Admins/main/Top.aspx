@@ -41,7 +41,7 @@
             </ul>
      
             <div class="user">
-                <span>admin</span>
+                <span><%=NickName %></span>
                 <i>消息</i>
                 <b>5</b>
             </div>    
