@@ -43,7 +43,7 @@
                 </li>
                 <li>
                     <label>公司地址:</label>
-                    <asp:TextBox ID="txtAddress" runat="server" TextMode="Password" CssClass="dfinput"></asp:TextBox>
+                    <asp:TextBox ID="txtAddress" runat="server"  CssClass="dfinput"></asp:TextBox>
                     <i>
                         
                     </i>
