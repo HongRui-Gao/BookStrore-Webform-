@@ -31,7 +31,7 @@
 </head>
 <body style="background: #f0f9fd;">
     <form id="form1" runat="server">
-        <div class="lefttop"><span></span>通讯录</div>
+        <div class="lefttop"><span></span>功能导航</div>
 
         <dl class="leftmenu">
 
