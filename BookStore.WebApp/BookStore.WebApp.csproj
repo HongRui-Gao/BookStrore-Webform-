@@ -65,6 +65,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admins\WebMenu\AddWebMenu.aspx" />
+    <Content Include="Admins\WebMenu\DeleteWebMenu.aspx" />
+    <Content Include="Admins\WebMenu\EditWebMenu.aspx" />
     <Content Include="Admins\WebMenu\WebMenuList.aspx" />
     <Content Include="kindeditor\asp.net\file_manager_json.ashx" />
     <Content Include="kindeditor\asp.net\upload_json.ashx" />
@@ -683,6 +686,27 @@
     </Compile>
     <Compile Include="Admins\Users\UsersList.aspx.designer.cs">
       <DependentUpon>UsersList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\WebMenu\AddWebMenu.aspx.cs">
+      <DependentUpon>AddWebMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\WebMenu\AddWebMenu.aspx.designer.cs">
+      <DependentUpon>AddWebMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\WebMenu\DeleteWebMenu.aspx.cs">
+      <DependentUpon>DeleteWebMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\WebMenu\DeleteWebMenu.aspx.designer.cs">
+      <DependentUpon>DeleteWebMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\WebMenu\EditWebMenu.aspx.cs">
+      <DependentUpon>EditWebMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\WebMenu\EditWebMenu.aspx.designer.cs">
+      <DependentUpon>EditWebMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admins\WebMenu\WebMenuList.aspx.cs">
       <DependentUpon>WebMenuList.aspx</DependentUpon>

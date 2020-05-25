@@ -26,14 +26,19 @@
             <div class="nav_l"><a href="index.html"><img src="images/logo.jpg" width="214" height="86" /></a></div>
             <div class="nav_r">
                 <ul>
-                    <li class="cur"><a href="#">首 页</a></li>
+                   <%-- <li class="cur"><a href="#">首 页</a></li>
                     <li><a href="#">信用贷款</a></li>
                     <li><a href="#">房产贷款</a></li>
                     <li><a href="#">车辆贷款</a></li>
                     <li><a href="#">企业贷款</a></li>
                     <li><a href="#">我要贷款</a></li>
                     <li><a href="#">关于我们</a></li>
-                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">联系我们</a></li>--%>
+                    <asp:Repeater ID="RepNavi" runat="server">
+                        <ItemTemplate>
+                            <li><a href='<%#Eval("Link") %>'><%#Eval("Title") %></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul> 
                 <div class="curBg"></div>
                 <div class="cls"></div>

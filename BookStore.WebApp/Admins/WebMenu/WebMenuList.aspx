@@ -29,7 +29,7 @@
         <span>位置：</span>
         <ul class="placeul">
             <li><a href="../main/Main.aspx">首页</a></li>
-            <li><a href="SystemMenuList.aspx">系统菜单管理</a></li>
+            <li><a href="WebMenuList.aspx">系统菜单管理</a></li>
         </ul>
     </div>
     <div class="rightinfo">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <ul class="float">
-                <li class="click"><a href='AddSystemMenu.aspx'>
+                <li class="click"><a href='AddWebMenu.aspx'>
                     <asp:Image ID="imgAdd" runat="server" ImageUrl="../images/AddWZ.png" Width="100"
                         Height="35"></asp:Image></a>
                 </li>
@@ -64,10 +64,10 @@
                         编号
                     </th>
                     <th>
-                        系统菜单名称
+                        网站菜单名称
                     </th>
                     <th>
-                        系统菜单连接
+                        网站菜单连接
                     </th>
                     <th>
                         父级菜单名称
@@ -81,7 +81,7 @@
                 </tr>
             </thead>
             <tbody>
-                <asp:Repeater ID="RepSystemMenuList" runat="server" >
+                <asp:Repeater ID="RepWebMenuList" runat="server" >
                     <ItemTemplate>
                         <tr>
                             <td width="5%">
@@ -102,12 +102,12 @@
                                <%# GetWebMenuTitle(int.Parse(Eval("ParentId").ToString())) %>
                             </td>
                             <td width="5%">
-                                <a href='EditSystemMenu.aspx?action=<%#Eval("Id") %>'>
+                                <a href='EditWebMenu.aspx?action=<%#Eval("Id") %>'>
                                     <asp:Image ID="imgedit" runat="server" ImageUrl="../images/t02.png" Width="20" Height="20">
                                     </asp:Image></a>
                             </td>
                             <td width="5%">
-                                <a href='DeleteSystemMenu.aspx?action=<%#Eval("Id") %>'>
+                                <a href='DeleteWebMenu.aspx?action=<%#Eval("Id") %>'>
                                     <asp:Image ID="imgdel" runat="server" ImageUrl="../images/t03.png" Width="20" Height="20">
                                     </asp:Image></a>
                             </td>

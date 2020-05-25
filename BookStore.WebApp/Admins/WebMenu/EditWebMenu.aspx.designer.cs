@@ -11,7 +11,7 @@ namespace BookStore.WebApp.Admins.WebMenu
 {
 
 
-    public partial class WebMenuList
+    public partial class EditWebMenu
     {
 
         /// <summary>
@@ -24,66 +24,102 @@ namespace BookStore.WebApp.Admins.WebMenu
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtKeyWords 控件。
+        /// MenuId 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtKeyWords;
+        protected global::System.Web.UI.WebControls.TextBox MenuId;
 
         /// <summary>
-        /// ibtnGetSubmit 控件。
+        /// MenuTitle 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ibtnGetSubmit;
+        protected global::System.Web.UI.WebControls.TextBox MenuTitle;
 
         /// <summary>
-        /// imgAdd 控件。
+        /// RequiredFieldValidator1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgAdd;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// ibtnDelAll 控件。
+        /// MenuLink 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ibtnDelAll;
+        protected global::System.Web.UI.WebControls.TextBox MenuLink;
 
         /// <summary>
-        /// chk_JS 控件。
+        /// RequiredFieldValidator2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chk_JS;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
-        /// RepWebMenuList 控件。
+        /// ddlLevel 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepWebMenuList;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLevel;
 
         /// <summary>
-        /// AspNetPager1 控件。
+        /// ddlParentTitle 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Wuqi.Webdiyer.AspNetPager AspNetPager1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlParentTitle;
+
+        /// <summary>
+        /// ddlSonTitle 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSonTitle;
+
+        /// <summary>
+        /// RdoShow 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RdoShow;
+
+        /// <summary>
+        /// RdoHidden 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RdoHidden;
+
+        /// <summary>
+        /// btnSumbit 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSumbit;
     }
 }
