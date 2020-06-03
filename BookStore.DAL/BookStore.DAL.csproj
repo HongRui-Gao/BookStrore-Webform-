@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutManager.cs" />
+    <Compile Include="AppointmentManager.cs" />
+    <Compile Include="AuditManager.cs" />
     <Compile Include="CopyrightManager.cs" />
     <Compile Include="FriendLinkManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

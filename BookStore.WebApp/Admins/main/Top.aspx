@@ -43,7 +43,7 @@
             <div class="user">
                 <span><%=NickName %></span>
                 <i>消息</i>
-                <b>5</b>
+                <b><%=count %></b>
             </div>    
     
         </div>

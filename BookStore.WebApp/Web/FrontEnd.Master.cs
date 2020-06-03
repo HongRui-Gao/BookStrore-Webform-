@@ -11,8 +11,8 @@ namespace BookStore.WebApp.Web
     public partial class FrontEnd : System.Web.UI.MasterPage
     {
         private AboutService aboutSvc = new AboutService();
-        private WebMenuService webMenuSvc = new WebMenuService();
-        public string about_title, about_content;
+        
+        public string about_title="", about_content="";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
@@ -26,11 +26,7 @@ namespace BookStore.WebApp.Web
 
             #endregion
 
-            #region 网站菜单绑定
-
-            this.RepNavi.DataSource = webMenuSvc.GetMenusByIsShow(1); //这个地方是我们要绑定到导航栏所以查看能够展示的内容
-            this.RepNavi.DataBind();
-            #endregion
+    
         }
     }
 }

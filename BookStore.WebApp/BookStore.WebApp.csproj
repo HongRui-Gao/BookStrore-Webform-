@@ -65,6 +65,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admins\Appointment\AppointmentList.aspx" />
+    <Content Include="Admins\Appointment\EditAppointment.aspx" />
     <Content Include="Admins\WebMenu\AddWebMenu.aspx" />
     <Content Include="Admins\WebMenu\DeleteWebMenu.aspx" />
     <Content Include="Admins\WebMenu\EditWebMenu.aspx" />
@@ -72,6 +74,7 @@
     <Content Include="kindeditor\asp.net\file_manager_json.ashx" />
     <Content Include="kindeditor\asp.net\upload_json.ashx" />
     <Content Include="Web\css1\style.css" />
+    <Content Include="Web\head.ascx" />
     <Content Include="Web\images\banner.jpg" />
     <Content Include="Web\images\banner_1.png" />
     <Content Include="Web\images\banner_2.png" />
@@ -117,6 +120,7 @@
     <Content Include="Web\js1\jquery-1.9.1.js" />
     <Content Include="Web\js1\rollinginthedeep.js" />
     <Content Include="Web\js1\zzsc.js" />
+    <Content Include="Hanlder\AddAppointmentHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -554,6 +558,20 @@
     <Compile Include="Admins\About\EditAbout.aspx.designer.cs">
       <DependentUpon>EditAbout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admins\Appointment\AppointmentList.aspx.cs">
+      <DependentUpon>AppointmentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Appointment\AppointmentList.aspx.designer.cs">
+      <DependentUpon>AppointmentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Appointment\EditAppointment.aspx.cs">
+      <DependentUpon>EditAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Appointment\EditAppointment.aspx.designer.cs">
+      <DependentUpon>EditAppointment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admins\Copyright\EditCopyright.aspx.cs">
       <DependentUpon>EditCopyright.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -718,6 +736,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hanlder\AddAppointmentHandler.ashx.cs">
+      <DependentUpon>AddAppointmentHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\UploadImages.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -728,6 +749,13 @@
     </Compile>
     <Compile Include="Web\FrontEnd.Master.designer.cs">
       <DependentUpon>FrontEnd.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web\head.ascx.cs">
+      <DependentUpon>head.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\head.ascx.designer.cs">
+      <DependentUpon>head.ascx</DependentUpon>
     </Compile>
     <Compile Include="Web\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
